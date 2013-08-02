@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PKN Raleigh Submissions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="submissions.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-narrow">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="index.html">Submissions</a></li>
+          <li><a href="http://pknraleigh.com/submit/">Submit</a></li>
+        </ul>
+        <h3 class="text-muted">PKN Raleigh Submissions</h3>
+      </div>
+      <div id="submissions"><h4>Loading...</h4></div>
+      <div class="footer">
+        <p>Made with <3.</p>
+      </div>
+    </div> <!-- /container -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="jquery.mustache.js"></script>
+    <script>
+      var template = "{{#entries}} \
+                        <div class=\"panel panel-info\"> \
+                          <div class=\"panel-heading\"> \
+                            <h3 class=\"panel-title\">{{ name }} - {{ title }}</h3> \
+                          </div> \
+                          <div class=\"text-muted\">Event Preference(s): {{ eventPreference }}</div> \
+                          <p>{{ summary }}</p> \
+                        </div> \
+                      {{/entries}}";
+      var output = $('#submissions');
+
+      $.getJSON('submissions.php', function(data){
+        output.html($.mustache(template, data));
+      });
+    </script>
+  </body>
+</html>

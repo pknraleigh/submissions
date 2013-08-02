@@ -1,0 +1,7 @@
+<?php
+
+$subdomain = '';
+$formHash = '';
+$apiKey = '';
+
+?>
