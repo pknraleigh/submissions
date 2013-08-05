@@ -24,6 +24,7 @@ if($resultStatus['http_code'] == 200) {
   foreach ($_entries['Entries'] as $entry) {
     $_entry = array(
       "name" => $entry['Field9'],
+      "nameSlug" => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $entry['Field9']))),
       "title" => $entry['Field226'],
       "eventPreference" => eventPreferences($entry),
       "summary" => nl2br($entry['Field113'])

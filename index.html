@@ -30,9 +30,9 @@
     <script src="jquery.mustache.js"></script>
     <script>
       var template = "{{#entries}} \
-                        <div class=\"panel panel-info\"> \
+                        <div id=\"{{ nameSlug }}\" class=\"panel panel-info\"> \
                           <div class=\"panel-heading\"> \
-                            <h3 class=\"panel-title\">{{ name }} - {{ title }}</h3> \
+                            <a title=\"Permalink\" href=\"#{{nameSlug}}\"><h3 class=\"panel-title\">{{ name }} - {{ title }}</h3></a> \
                           </div> \
                           <div class=\"text-muted\">Event Preference(s): {{ eventPreference }}</div> \
                           <p>{{ summary }}</p> \
